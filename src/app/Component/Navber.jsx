@@ -22,13 +22,22 @@ export default function Navber() {
             <Link href="#">Features</Link>
         </li>
         <li>
-            <Link href="#" className="font-medium text-accent" aria-current="page">
+            <Link href="/dashboard" className="font-medium text-accent" aria-current="page">
                 Dashboard
             </Link>
         </li>
+       {
+        session?.user &&  <>
         <li>
-            <Link href="#">Pricing</Link>
+            <Link href="/profile">Profile</Link>
         </li>
+        
+           <li>
+            <Link href="/settings">Settings</Link>
+        </li>
+        
+        </>
+       }
 
     </>
 

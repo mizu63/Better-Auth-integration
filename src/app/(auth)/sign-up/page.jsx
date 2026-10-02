@@ -1,6 +1,6 @@
 "use client";
 
-import { signUp } from "../../../lib/auth-client";
+import { signIn, signUp } from "../../../lib/auth-client";
 import { Eye, EyeSlash } from "@gravity-ui/icons";
 import {
   Button,
@@ -41,10 +41,35 @@ const SignUpPage = () => {
 
     console.log("Signup Success:", data);
 
-    // Signup successful হলে Sign In page-এ যাবে
+ a
     router.push("/sign-in");
   };
 
+//  const handle = async () => {
+//   const { data: resdata, error } = await signIn.social({
+//     provider: "google",
+//   });
+
+//   if (error) {
+//     console.log("Google Sign In Error:", error.message);
+//     return;
+//   }
+
+//   console.log("Google Sign In Success:", resdata);
+// };
+   const handle = async () => {
+  const { data, error } = await signIn.social({
+    provider: "google",
+    callbackURL: "/",
+  });
+
+  if (error) {
+    console.log("Google Sign In Error:", error);
+    return;
+  }
+
+  console.log("Google Sign In Success:", data);
+};
   return (
     <div>
       <h1>Sign-Up</h1>
@@ -174,6 +199,10 @@ const SignUpPage = () => {
           </Button>
         </div>
       </Form>
+      <p>OR</p>
+        <Button onClick={handle}> Sign in with Google</Button>
+   
+     
     </div>
   );
 };
