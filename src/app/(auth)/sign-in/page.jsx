@@ -8,6 +8,7 @@ import {
   Form,
   Input,
   Label,
+  Link,
   TextField,
 } from "@heroui/react";
 
@@ -102,6 +103,9 @@ const SingInPage = () => {
           </Button>
         </div>
       </Form>
+      <p><small>forgot password? <Link
+      className=" text-blue-500 hover:text-blue-700 underline"
+       href="/forgot-password">click</Link></small></p>
     </div>
   );
 };
